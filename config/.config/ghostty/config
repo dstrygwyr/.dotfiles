@@ -6,7 +6,7 @@ window-padding-balance= true
 window-width = 110
 window-height = 27
 window-save-state = always
-fullscreen = true
+fullscreen = false
 
 working-directory = home
 window-inherit-working-directory = true

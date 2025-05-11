@@ -1,4 +1,0 @@
-customCommands:
-  - key: H # Use any preferred key
-    description: Show file history
-    command: git log --oneline --follow -- {{index .SelectedFile 0}}
