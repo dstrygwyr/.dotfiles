@@ -10,3 +10,5 @@
 	useHttpPath = true
 [credential "https://github.com"]
 	useHttpPath = true
+[credential "https://repository.ssdm.polri.go.id"]
+	provider = generic

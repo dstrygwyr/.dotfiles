@@ -1,7 +1,8 @@
 alias bbdd="brew bundle dump --describe"
 alias nv="nvim"
 alias vi="nvim"
-alias tr="trae"
+alias c="code"
+alias z="zed"
 
 alias gs='git status'
 alias gp='git pull'
