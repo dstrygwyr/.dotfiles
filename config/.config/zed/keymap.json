@@ -46,5 +46,17 @@
       "pageup": "editor::ContextMenuFirst",
       "pagedown": "editor::ContextMenuLast"
     }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-`": "terminal_panel::ToggleFocus"
+    }
+  },
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      "shift-s": ["vim::PushAddSurrounds", {}]
+    }
   }
 ]
