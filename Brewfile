@@ -1,3 +1,4 @@
+tap "oven-sh/bun"
 # Distributed revision control system
 brew "git"
 # Open source programming language to build simple/reliable/efficient software
@@ -30,5 +31,3 @@ cask "ghostty"
 cask "git-credential-manager"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
-# Control your tools with a few keystrokes
-cask "raycast"
