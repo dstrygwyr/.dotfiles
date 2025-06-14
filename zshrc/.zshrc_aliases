@@ -1,8 +1,9 @@
-alias bbdd="brew bundle dump --describe"
-alias nv="nvim"
-alias vi="nvim"
-alias c="code"
-alias z="zed"
+alias bbdd='brew bundle dump --describe'
+alias nv='nvim'
+alias vi='nvim'
+alias v='nvim'
+alias c='code'
+alias z='zed'
 
 alias gs='git status'
 alias gp='git pull'
@@ -23,3 +24,4 @@ alias glog='git log'
 alias glogp='git log --pretty=format:"%h %s" --graph'
 alias gfo='git fetch origin'
 alias gm='git merge'
+alias gf='git fetch'
