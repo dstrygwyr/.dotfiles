@@ -1,4 +1,6 @@
 tap "oven-sh/bun"
+# Node Version Manager for managing multiple Node.js versions
+brew "nvm"
 # Distributed revision control system
 brew "git"
 # Open source programming language to build simple/reliable/efficient software
@@ -35,3 +37,17 @@ cask "ngrok"
 cask "notion"
 # Postman is a powerful API development environment that helps you create, test, and document APIs.
 cask "postman"
+# Monospaced font with programming ligatures designed by JetBrains
+cask "font-jetbrains-mono"
+# JetBrains Mono with added Nerd Font glyphs for terminal icons and powerline symbols
+cask "font-jetbrains-mono-nerd-font"
+# Open-source code editor developed by Microsoft with extensive language support and extensions
+cask "visual-studio-code"
+# High-performance, collaborative code editor written in Rust
+cask "zed"
+# Team communication and collaboration platform
+cask "slack"
+# Digital music streaming service
+cask "spotify"
+# Voice and text chat application for communities
+cask "discord"
