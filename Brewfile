@@ -33,3 +33,5 @@ cask "git-credential-manager"
 cask "ngrok"
 # All-in-one workspace for notes, tasks, wikis, and databases
 cask "notion"
+# Postman is a powerful API development environment that helps you create, test, and document APIs.
+cask "postman"
