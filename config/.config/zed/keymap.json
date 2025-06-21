@@ -30,6 +30,12 @@
       "m": "project_panel::CollapseAllEntries"
     }
   },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "space w": "workspace::Save"
+    }
+  },
   // {
   //   "context": "Editor && vim_mode == insert && !menu",
   //   "bindings": {

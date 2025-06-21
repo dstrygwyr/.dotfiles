@@ -31,3 +31,5 @@ cask "ghostty"
 cask "git-credential-manager"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# All-in-one workspace for notes, tasks, wikis, and databases
+cask "notion"
