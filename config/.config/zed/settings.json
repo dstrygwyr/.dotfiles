@@ -11,13 +11,15 @@
     "edit_prediction_provider": "zed"
   },
   "agent": {
+    "enabled": true,
     "model_parameters": [],
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-7-sonnet"
+      "model": "claude-sonnet-4"
     },
     "version": "2"
   },
+  "extend_comment_on_newline": false,
   "soft_wrap": "editor_width",
   "icon_theme": "Zed (Default)",
   "vim_mode": true,

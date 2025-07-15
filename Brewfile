@@ -9,8 +9,6 @@ brew "go"
 brew "neovim"
 # Fast, disk space efficient package manager
 brew "pnpm"
-# Object-relational database system
-brew "postgresql@17", restart_service: :changed
 # Cross-shell prompt for astronauts
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
