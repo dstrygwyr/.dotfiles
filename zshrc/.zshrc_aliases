@@ -25,3 +25,6 @@ alias glogp='git log --pretty=format:"%h %s" --graph'
 alias gfo='git fetch origin'
 alias gm='git merge'
 alias gf='git fetch'
+
+alias dim='docker image'
+alias dc='docker container'
