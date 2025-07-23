@@ -28,7 +28,7 @@ alias gf='git fetch'
 
 alias dim='docker image'
 alias dc='docker container'
-alist dps='docker ps'
+alias dps='docker ps'
 alias dlogs='docker logs'
 alias dn='docker network'
 alias dvol='docker volume'
