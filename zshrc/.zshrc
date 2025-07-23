@@ -26,3 +26,4 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
