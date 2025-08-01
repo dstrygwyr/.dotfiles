@@ -1,10 +1,12 @@
-alias bbdd='brew bundle dump --describe'
+# ─── General Tools ──────────────────────────────────────────────────────────
 alias nv='nvim'
 alias vi='nvim'
 alias v='nvim'
 alias c='code'
 alias z='zed'
+alias bbdd='brew bundle dump --describe'
 
+# ─── Git Aliases ────────────────────────────────────────────────────────────
 alias gs='git status'
 alias gp='git pull'
 alias gph='git push'
@@ -23,13 +25,14 @@ alias gcotb='git checkout --track -b'
 alias glog='git log'
 alias glogp='git log --pretty=format:"%h %s" --graph'
 alias gfo='git fetch origin'
-alias gm='git merge'
 alias gf='git fetch'
+alias gm='git merge'
 
-alias dim='docker image'
-alias dc='docker container'
+# ─── Docker Aliases ─────────────────────────────────────────────────────────
+alias doc='docker'
 alias dps='docker ps'
 alias dlogs='docker logs'
+alias dim='docker image'
+alias dc='docker container'
 alias dn='docker network'
 alias dvol='docker volume'
-alias doc='docker'

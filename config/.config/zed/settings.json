@@ -9,30 +9,41 @@
 {
   "features": {
     "edit_prediction_provider": "zed"
+    // "edit_prediction_provider": "none"
   },
   "agent": {
+    "always_allow_tool_actions": true,
     "enabled": true,
     "model_parameters": [],
     "default_model": {
       "provider": "zed.dev",
       "model": "claude-sonnet-4"
-    },
-    "version": "2"
+    }
+  },
+  "project_panel": {
+    "auto_reveal_entries": false
+  },
+  "indent_guides": {
+    "line_width": 0,
+    "active_line_width": 1
   },
   "extend_comment_on_newline": false,
   "soft_wrap": "editor_width",
-  "icon_theme": "Zed (Default)",
+  "session": {
+    "restore_unsaved_buffers": false
+  },
   "vim_mode": true,
   "ui_font_size": 16,
   "ui_font_family": "JetBrains Mono",
-  "buffer_font_size": 13.5,
+  "buffer_font_size": 13,
   "buffer_font_family": "JetBrains Mono",
-  "buffer_font_weight": 500,
+  "buffer_font_weight": 600,
   "buffer_line_height": {
-    "custom": 2.2
+    "custom": 2.1
   },
   "terminal": {
-    "font_family": "JetBrainsMono Nerd Font"
+    "font_family": "JetBrainsMono Nerd Font Mono",
+    "dock": "right"
   },
   "minimap": {
     "show": "always",
@@ -40,54 +51,8 @@
     "thumb": "always",
     "thumb_border": "full"
   },
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "Fleet Dark"
-  },
+  "theme": "Github Dark",
   "lsp": {
-    // "discord_presence": {
-    //   "initialization_options": {
-    //     // Application ID for the rich presence (don't touch it unless you know what you're doing)
-    //     "application_id": "1263505205522337886",
-    //     // Base URL for all language icons
-    //     "base_icons_url": "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/",
-
-    //     "state": "Working on {filename}",
-    //     "details": "In {workspace}",
-    //     // URL for the large image
-    //     "large_image": "{base_icons_url}/{language:lo}.png", // :lo lowercase the language name
-    //     "large_text": "{language:u}", // :u capitalizes the first letter
-    //     // URL for the small image
-    //     "small_image": "{base_icons_url}/zed.png",
-    //     "small_text": "Zed",
-
-    //     // Idle settings - when you're inactive
-    //     // "idle": {
-    //     //   "timeout": 300, // Idle timeout in seconds (300 seconds = 5 minutes)
-
-    //     //   // Action to take when idle
-    //     //   // `change_activity` - changes the activity to idle with the following details
-    //     //   // `clear_activity` - clears the activity (hides it)
-    //     //   "action": "change_activity",
-
-    //     //   "state": "Idling",
-    //     //   "details": "In Zed",
-    //     //   "large_image": "{base_icons_url}/zed.png",
-    //     //   "large_text": "Zed",
-    //     //   "small_image": "{base_icons_url}/idle.png",
-    //     //   "small_text": "Idle"
-    //     // },
-
-    //     // Rules to disable presence in specific workspaces
-    //     "rules": {
-    //       "mode": "blacklist", // Can also be "whitelist"
-    //       "paths": ["absolute path"]
-    //     },
-
-    //     "git_integration": true
-    //   }
-    // },
     "biome": {
       "settings": {
         "config_path": "./biome.json",
