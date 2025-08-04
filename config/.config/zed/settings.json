@@ -1,0 +1,87 @@
+// Zed settings
+//
+// Docs: https://zed.dev/docs/configuring-zed
+// To view default settings: open command palette (cmd-shift-p / ctrl-shift-p) and run `zed: open default settings`
+
+{
+  // === Feature Settings ===
+  // Enables GitHub Copilot for inline code suggestions.
+  "features": {
+    "edit_prediction_provider": "copilot"
+    // To disable, use: "none"
+  },
+
+  // === AI Agent Configuration ===
+  // Configures the assistant/chat model for tool actions, like Claude or Copilot Chat.
+  "agent": {
+    "enabled": true,
+    "always_allow_tool_actions": true,
+    "model_parameters": [],
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
+    }
+  },
+
+  // === Indentation Guides ===
+  // Customize vertical indent guide appearance in the editor.
+  "indent_guides": {
+    "line_width": 0,
+    "active_line_width": 1
+  },
+
+  // === Editor Behavior ===
+  // Controls wrapping, comment behavior, and unsaved session handling.
+  "extend_comment_on_newline": false,
+  "soft_wrap": "editor_width",
+  "restore_on_startup": "none",
+
+  // === Vim Mode ===
+  // Enables Vim keybindings in the editor.
+  "vim_mode": true,
+
+  // === UI Font Settings ===
+  // Font and size settings for Zed's user interface elements.
+  "ui_font_size": 16,
+  "ui_font_family": "JetBrains Mono",
+
+  // === Editor Font Settings ===
+  // Font and appearance settings for the main text editor (buffer).
+  "buffer_font_size": 13,
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_weight": 600,
+  "buffer_line_height": {
+    "custom": 2
+  },
+
+  // === Terminal Settings ===
+  // Font and layout settings for Zed's integrated terminal.
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font Mono",
+    "dock": "right"
+  },
+
+  // === Minimap Settings ===
+  // Controls the visibility and appearance of the minimap.
+  "minimap": {
+    "show": "always",
+    "current_line_highlight": "all",
+    "thumb": "always",
+    "thumb_border": "full"
+  },
+
+  // === Theme ===
+  // Sets the current UI and editor color theme.
+  "theme": "Github Dark",
+
+  // === Language Server (LSP) Config ===
+  // Biome-specific LSP settings.
+  "lsp": {
+    "biome": {
+      "settings": {
+        "config_path": "./biome.json",
+        "require_config_file": true
+      }
+    }
+  }
+}
