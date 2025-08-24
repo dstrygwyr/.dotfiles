@@ -28,3 +28,5 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath=(/Users/strygwyr/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
+
+[[ -s "/Users/strygwyr/.gvm/scripts/gvm" ]] && source "/Users/strygwyr/.gvm/scripts/gvm"

@@ -54,7 +54,7 @@
     }
   },
   {
-    "context": "Terminal",
+    "context": "Workspace",
     "bindings": {
       "cmd-`": "terminal_panel::ToggleFocus"
     }
@@ -63,6 +63,18 @@
     "context": "vim_mode == visual",
     "bindings": {
       "shift-s": ["vim::PushAddSurrounds", {}]
+    }
+  },
+  {
+    "context": "(Editor && edit_prediction)",
+    "bindings": {
+      "tab": null
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-w": null
     }
   }
 ]
