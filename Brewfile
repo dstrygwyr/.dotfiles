@@ -1,13 +1,13 @@
 tap "hashicorp/tap"
 tap "oven-sh/bun"
+# Distributed revision control system
+brew "git"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
 # Official Amazon AWS command-line interface
 brew "awscli"
-# Powerful, clean, object-oriented scripting language
-brew "git"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Manage multiple Node.js versions
-brew "nvm"
 # Fast, disk space efficient package manager
 brew "pnpm"
 # Safe, concurrent, practical language
@@ -18,8 +18,6 @@ brew "rustup"
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
-# Programming language designed for robustness, optimality, and clarity
-brew "zig"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
@@ -30,6 +28,8 @@ brew "hashicorp/tap/terraform"
 brew "oven-sh/bun/bun"
 # Allows connection to a computer remotely
 cask "anydesk"
+# Chromium based browser
+cask "arc"
 # Voice and text chat software
 cask "discord"
 # App to build and share containerised applications and microservices
@@ -38,8 +38,6 @@ cask "docker-desktop"
 cask "figma"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
-# Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty"
 # Cross-platform Git credential storage for multiple hosting providers
 cask "git-credential-manager"
 # Git client focusing on productivity

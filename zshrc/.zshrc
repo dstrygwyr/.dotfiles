@@ -6,11 +6,6 @@ source $ZSH/oh-my-zsh.sh
 # ─── Load Custom Aliases ────────────────────────────────────────────────────
 [ -f ~/.zshrc_aliases ] && source ~/.zshrc_aliases
 
-# ─── NVM (Node Version Manager) ─────────────────────────────────────────────
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && source "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && source "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-
 # ─── Starship Prompt ────────────────────────────────────────────────────────
 eval "$(starship init zsh)"
 
@@ -20,6 +15,8 @@ export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
+# ─── ASDF Version Manager (Homebrew) ────────────────────────────────────────
+. $(brew --prefix asdf)/libexec/asdf.sh
 # ─── Zsh Plugins ────────────────────────────────────────────────────────────
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
