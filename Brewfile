@@ -54,8 +54,6 @@ cask "pearcleaner"
 cask "postman"
 # Team communication and collaboration software
 cask "slack"
-# Music streaming service
-cask "spotify"
 # Native GUI tool for relational databases
 cask "tableplus"
 # Open-source code editor

@@ -27,8 +27,14 @@
   // === Indentation Guides ===
   // Customize vertical indent guide appearance in the editor.
   "indent_guides": {
-    "line_width": 0,
-    "active_line_width": 1
+    "active_line_width": 2
+  },
+
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true
+    }
   },
 
   // === Editor Behavior ===
@@ -36,7 +42,14 @@
   "extend_comment_on_newline": false,
   "soft_wrap": "editor_width",
   "restore_on_startup": "none",
-
+  "hide_mouse": "on_typing_and_movement",
+  "inlay_hints": {
+    "enabled": false
+  },
+  "telemetry": { "diagnostics": false, "metrics": false },
+  "scrollbar": {
+    "show": "never"
+  },
   // === Vim Mode ===
   // Enables Vim keybindings in the editor.
   "vim_mode": true,
