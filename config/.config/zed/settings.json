@@ -5,10 +5,24 @@
 
 {
   // === Feature Settings ===
-  // Enables GitHub Copilot for inline code suggestions.
+  "agent_servers": {
+    "claude": {
+      "command": "npx",
+      "args": ["claude-code-acp"]
+    }
+  },
+  // MCP Settings
+  "context_servers": {
+    "laravel-boost": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {}
+    }
+  },
   "features": {
-    "edit_prediction_provider": "copilot"
     // To disable, use: "none"
+    // "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "none"
   },
 
   // === AI Agent Configuration ===
@@ -39,7 +53,7 @@
 
   // === Editor Behavior ===
   // Controls wrapping, comment behavior, and unsaved session handling.
-  "extend_comment_on_newline": false,
+  "extend_comment_on_newline": true,
   "soft_wrap": "editor_width",
   "restore_on_startup": "none",
   "hide_mouse": "on_typing_and_movement",
@@ -71,8 +85,7 @@
   // === Terminal Settings ===
   // Font and layout settings for Zed's integrated terminal.
   "terminal": {
-    "font_family": "JetBrainsMono Nerd Font",
-    "dock": "right"
+    "font_family": "JetBrainsMono Nerd Font"
   },
 
   // === Minimap Settings ===

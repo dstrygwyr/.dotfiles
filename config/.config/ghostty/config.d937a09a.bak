@@ -34,4 +34,3 @@ auto-update-channel = tip
 # Behavior
 right-click-action = copy
 link-previews = osc8
-keybind = shift+enter=text:\x1b\r

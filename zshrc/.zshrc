@@ -12,8 +12,8 @@ eval "$(starship init zsh)"
 # ─── Path Configuration ─────────────────────────────────────────────────────
 export PATH="/opt/homebrew/opt/trash/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
-export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export GOBIN="$HOME/.asdf/shims"
 
 # ─── ASDF Version Manager (Homebrew) ────────────────────────────────────────
 . $(brew --prefix asdf)/libexec/asdf.sh
@@ -27,3 +27,6 @@ autoload -Uz compinit
 compinit
 
 [[ -s "/Users/strygwyr/.gvm/scripts/gvm" ]] && source "/Users/strygwyr/.gvm/scripts/gvm"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
