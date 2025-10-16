@@ -14,11 +14,12 @@ M.base46 = {
   -- },
 }
 
-M.nvdash = { load_on_startup = true }
+M.nvdash = { load_on_startup = false }
 M.ui = {
   tabufline = {
     enabled = true,
-    lazyload = false,
+    lazyload = true,
+    order = {"treeOffset", "buffers", "tabs"}
   },
   statusline = {
     theme = "minimal",
