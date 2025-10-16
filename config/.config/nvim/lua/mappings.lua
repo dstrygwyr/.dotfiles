@@ -28,10 +28,10 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic locli
 
 -- Tabufline (Buffer Navigation)
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "New buffer" })
-map("n", "<tab>", function()
+map("n", "<C-]>", function()
   require("nvchad.tabufline").next()
 end, { desc = "Goto next buffer" })
-map("n", "<S-tab>", function()
+map("n", "<C-[>", function()
   require("nvchad.tabufline").prev()
 end, { desc = "Goto prev buffer" })
 map("n", "<leader>x", function()
