@@ -41,4 +41,33 @@ return {
       "nvim-lua/plenary.nvim",
     },
   },
+
+  -- Git blame
+  {
+    "f-person/git-blame.nvim",
+    event = "VeryLazy",
+    opts = {
+      enabled = true,
+      message_template = " <summary> • <date> • <author>",
+      date_format = "%m-%d-%Y %H:%M:%S",
+      virtual_text_column = 1,
+    },
+  },
+
+  -- GitHub Copilot
+  {
+    "github/copilot.vim",
+    event = "InsertEnter",
+  },
+
+  -- Open links in browser
+  {
+    "chrishrb/gx.nvim",
+    keys = { { "gx", "<cmd>Browse<cr>", mode = { "n", "x" } } },
+    cmd = { "Browse" },
+    init = function()
+      vim.g.netrw_nogx = 1 -- disable netrw's gx
+    end,
+    config = true,
+  },
 }

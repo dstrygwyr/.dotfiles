@@ -79,7 +79,7 @@ end, { desc = "Toggle horizontal term" })
 map("n", "<leader>v", function()
   -- Switch to the last accessed normal window before opening terminal
   if vim.bo.filetype == "NvimTree" then
-    vim.cmd("wincmd p")
+    vim.cmd "wincmd p"
   end
   require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm", size = 0.3 }
 end, { desc = "Toggle vertical term" })
@@ -88,7 +88,7 @@ end, { desc = "Toggle vertical term" })
 map({ "n", "t" }, "<A-v>", function()
   -- Switch to the last accessed normal window before opening terminal
   if vim.bo.filetype == "NvimTree" then
-    vim.cmd("wincmd p")
+    vim.cmd "wincmd p"
   end
   require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
 end, { desc = "Toggleable vertical term" })
