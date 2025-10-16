@@ -60,7 +60,7 @@ map("n", "<leader>th", function()
   require("nvchad.themes").open()
 end, { desc = "NvChad themes" })
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
-map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<CR>", { desc = "Find all files" })
+map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true<CR>", { desc = "Find all files" })
 
 -- Telescope LSP Symbol Search
 map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Find symbols in document" })
@@ -71,13 +71,13 @@ map("n", "<leader>fr", "<cmd>Telescope lsp_references<CR>", { desc = "Find refer
 map("t", "<Esc><Esc>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
 map("t", "<C-q>", "<C-\\><C-N>:bd!<CR>", { desc = "Close terminal" })
 
--- Toggle terminals
+-- Toggle terminals (with custom size)
 map("n", "<leader>h", function()
-  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm" }
+  require("nvchad.term").toggle { pos = "sp", id = "htoggleTerm", size = 0.3 }
 end, { desc = "Toggle horizontal term" })
 
 map("n", "<leader>v", function()
-  require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm" }
+  require("nvchad.term").toggle { pos = "vsp", id = "vtoggleTerm", size = 0.3 }
 end, { desc = "Toggle vertical term" })
 
 -- Toggleable terminals
@@ -131,6 +131,9 @@ map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", { desc = "Preview git h
 map("n", "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Git blame line" })
 map("n", "[c", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous git hunk" })
 map("n", "]c", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next git hunk" })
+
+-- Lazygit
+map("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Open LazyGit" })
 
 -- Miscellaneous
 map("n", "<leader>uu", "<cmd>Lazy update<cr>", { desc = "Update plugins" })
