@@ -24,6 +24,23 @@ M.ui = {
   statusline = {
     theme = "minimal",
     separator_style = "block",
+    order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },
+    modules = {
+      git = function()
+        if not vim.b.gitsigns_head or vim.b.gitsigns_git_status then
+          return ""
+        end
+
+        local git_status = vim.b.gitsigns_status_dict
+        local branch_name = git_status and git_status.head or ""
+
+        if branch_name == "" then
+          return ""
+        end
+
+        return " " .. " " .. branch_name .. " "
+      end,
+    },
   },
 }
 
