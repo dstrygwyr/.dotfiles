@@ -4,92 +4,81 @@
 // To view default settings: open command palette (cmd-shift-p / ctrl-shift-p) and run `zed: open default settings`
 
 {
-  // === Feature Settings ===
-  "agent_servers": {
-    "claude": {
-      "command": "npx",
-      "args": ["claude-code-acp"]
-    }
+  // === Theme ===
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
   },
-  // MCP Settings
-  "context_servers": {
-    "laravel-boost": {
-      "source": "extension",
-      "enabled": true,
-      "settings": {}
-    }
+  "cursor_shape": "bar",
+  "project_panel": {
+    "git_status": true,
+    "hide_gitignore": false,
+    "auto_reveal_entries": true,
+    "hide_root": true,
+    "auto_fold_dirs": false,
+    "file_icons": true,
+    "folder_icons": true
   },
-  "features": {
-    // To disable, use: "none"
-    // "edit_prediction_provider": "zed"
-    "edit_prediction_provider": "none"
-  },
-
-  // === AI Agent Configuration ===
-  // Configures the assistant/chat model for tool actions, like Claude or Copilot Chat.
-  "agent": {
-    "use_modifier_to_send": true,
-    "enabled": true,
-    "always_allow_tool_actions": true,
-    "model_parameters": [],
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5"
-    }
+  "theme": {
+    "mode": "dark",
+    "light": "Kanso Zen (No italics)",
+    "dark": "Kanso Zen (No italics)"
   },
 
-  // === Indentation Guides ===
-  // Customize vertical indent guide appearance in the editor.
-  "indent_guides": {
-    "active_line_width": 2
+  // === UI Font Settings ===
+  "ui_font_family": "JetBrains Mono",
+  "ui_font_size": 15.0,
+  "ui_font_weight": 400.0,
+
+  // === Editor Font Settings ===
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 13.0,
+  "buffer_font_weight": 600,
+  "buffer_line_height": {
+    "custom": 1.8
   },
 
-  "git": {
-    "git_gutter": "tracked_files",
-    "inline_blame": {
-      "enabled": true
-    }
+  // === Terminal Settings ===
+  "terminal": {
+    "toolbar": {
+      "breadcrumbs": true
+    },
+    "font_family": "JetBrainsMono Nerd Font Mono",
+    "dock": "bottom"
   },
+
+  // === Window & Tabs ===
+  "use_system_window_tabs": false,
+  "title_bar": {
+    "show_branch_icon": true
+  },
+  "toolbar": {
+    "code_actions": false
+  },
+  "tabs": {
+    "file_icons": false
+  },
+  "confirm_quit": true,
 
   // === Editor Behavior ===
-  // Controls wrapping, comment behavior, and unsaved session handling.
+  "vim_mode": true,
+  "format_on_save": "off",
   "extend_comment_on_newline": true,
   "soft_wrap": "editor_width",
   "restore_on_startup": "none",
   "hide_mouse": "on_typing_and_movement",
-  "inlay_hints": {
-    "enabled": false
-  },
-  "telemetry": { "diagnostics": false, "metrics": false },
+
+  // === Visual Elements ===
   "scrollbar": {
     "show": "never"
   },
-  // === Vim Mode ===
-  // Enables Vim keybindings in the editor.
-  "vim_mode": true,
-
-  // === UI Font Settings ===
-  // Font and size settings for Zed's user interface elements.
-  "ui_font_size": 16,
-  "ui_font_family": "JetBrains Mono",
-
-  // === Editor Font Settings ===
-  // Font and appearance settings for the main text editor (buffer).
-  "buffer_font_size": 14,
-  "buffer_font_family": "JetBrains Mono",
-  "buffer_font_weight": 600,
-  "buffer_line_height": {
-    "custom": 2
+  "indent_guides": {
+    "active_line_width": 2
   },
-
-  // === Terminal Settings ===
-  // Font and layout settings for Zed's integrated terminal.
-  "terminal": {
-    "font_family": "JetBrainsMono Nerd Font"
+  "inlay_hints": {
+    "enabled": false
   },
-
-  // === Minimap Settings ===
-  // Controls the visibility and appearance of the minimap.
   "minimap": {
     "show": "always",
     "current_line_highlight": "all",
@@ -97,12 +86,88 @@
     "thumb_border": "full"
   },
 
-  // === Theme ===
-  // Sets the current UI and editor color theme.
-  "theme": "Github Dark",
+  // === Diagnostics ===
+  "diagnostics": {
+    "inline": {
+      "enabled": true,
+      "update_debounce_ms": 150,
+      "padding": 2,
+      "min_column": 80,
+      "max_severity": "info"
+    }
+  },
 
-  // === Language Server (LSP) Config ===
-  // Biome-specific LSP settings.
+  // === Git ===
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+
+  // === AI Agent Configuration ===
+  "agent_servers": {
+    "Z.AI": {
+      "command": "npx",
+      "args": ["claude-code-acp"],
+      "env": {
+        "ANTHROPIC_BASE_URL": "https://api.z.ai/api/anthropic",
+        "ANTHROPIC_AUTH_TOKEN": "a2319f7a150d49a7b7322787435aa57c.GlPxeI4FeOHbAfP7",
+        "API_TIMEOUT_MS": "3000000",
+        "ANTHROPIC_DEFAULT_HAIKU_MODEL": "glm-4.5-air",
+        "ANTHROPIC_DEFAULT_SONNET_MODEL": "glm-4.6",
+        "ANTHROPIC_DEFAULT_OPUS_MODEL": "glm-4.6"
+      }
+    }
+  },
+  "agent": {
+    "enabled": true,
+    "use_modifier_to_send": true,
+    "always_allow_tool_actions": true,
+    "model_parameters": [],
+    "default_model": {
+      "provider": "GLM",
+      "model": "glm-4.6"
+    }
+  },
+
+  // === Language Models ===
+  "language_models": {
+    "openai_compatible": {
+      "GLM": {
+        "api_url": "https://api.z.ai/api/anthropic",
+        "available_models": [
+          {
+            "name": "glm-4.6",
+            "display_name": "GLM-4.6",
+            "max_tokens": 128000,
+            "max_output_tokens": 8192,
+            "capabilities": {
+              "tools": true,
+              "images": true,
+              "parallel_tool_calls": true,
+              "prompt_cache_key": true
+            }
+          }
+        ]
+      }
+    }
+  },
+
+  // === Features ===
+  "features": {
+    "edit_prediction_provider": "none"
+  },
+
+  // === Context Servers (MCP) ===
+  "context_servers": {
+    "laravel-boost": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {}
+    }
+  },
+
+  // === Language Server (LSP) ===
   "lsp": {
     "biome": {
       "settings": {
@@ -110,5 +175,11 @@
         "require_config_file": true
       }
     }
+  },
+
+  // === Telemetry ===
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
   }
 }

@@ -12,6 +12,7 @@ eval "$(starship init zsh)"
 # ─── Path Configuration ─────────────────────────────────────────────────────
 export PATH="/opt/homebrew/opt/trash/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
+export PATH="/Users/strygwyr/.bun/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export GOBIN="$HOME/.asdf/shims"
 
