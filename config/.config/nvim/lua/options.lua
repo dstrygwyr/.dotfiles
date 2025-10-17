@@ -6,7 +6,7 @@ local o = vim.o
 o.cursorlineopt ='both' -- to enable cursorline!
 
 -- UFO folding settings
-o.foldcolumn = "1"      -- Show fold column
+o.foldcolumn = "0"      -- Hide fold column
 o.foldlevel = 99        -- Using ufo provider need a large value
 o.foldlevelstart = 99   -- Expand all folds by default
 o.foldenable = true     -- Enable folding
