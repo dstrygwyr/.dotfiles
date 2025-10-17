@@ -1,34 +1,91 @@
-## Steps to bootstrap a new Mac
+## Steps to Bootstrap a New Mac
 
-1. Install Apple's Command Line Tools, which are prerequisites for Git and Homebrew.
+### 1. Install Command Line Tools
+
+Install Apple's Command Line Tools (required for Git and Homebrew):
 
 ```zsh
 xcode-select --install
 ```
 
-2. Install Homebrew, followed by the software listed in the Brewfile.
+### 2. Clone This Repository
 
 ```zsh
-# These could also be in an install script.
+git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+```
 
-# Install Homebrew
+### 3. Install Homebrew and Packages
+
+Install Homebrew:
+
+```zsh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
-# Then pass in the Brewfile location...
+Install all packages from the Brewfile:
+
+```zsh
 brew bundle --file ~/.dotfiles/Brewfile
-
-# ...or move to the directory first.
-cd ~/.dotfiles && brew bundle
 ```
 
-3. Use Stow to Manage Dotfiles
+### 4. Apply Dotfiles with Stow
 
-To apply your dotfiles (configuration files), use stow to symlink them from your `~/.dotfiles` directory to the appropriate locations in your home directory.
+Stow creates symlinks from `~/.dotfiles` to your home directory.
 
-Run the following command to symlink all dotfiles:
+#### First Time Setup
 
+To symlink a specific configuration (e.g., nvim):
+
+```zsh
+cd ~/.dotfiles
+stow config
 ```
-stow ~/.dotfiles/* <folder name>
+
+To symlink multiple configurations:
+
+```zsh
+cd ~/.dotfiles
+stow config zsh git
 ```
 
-This will create symlinks for all the configuration files in your `~/.dotfiles` directory, ensuring that your system is set up with your desired configurations.
+#### Handling Existing Files
+
+If you get a conflict error (files already exist), you have two options:
+
+**Option 1: Backup and remove existing files**
+
+```zsh
+# Backup existing config
+mkdir -p ~/config_backup
+mv ~/.config/nvim ~/config_backup/
+
+# Then run stow again
+stow config
+```
+
+**Option 2: Adopt existing files (merge into dotfiles)**
+
+```zsh
+# This moves existing files into your dotfiles directory and creates symlinks
+stow --adopt config
+
+# Review changes (some files might differ from your dotfiles)
+git diff
+
+# If you want to keep your dotfiles version, restore them
+git restore .
+```
+
+#### Removing Symlinks
+
+To remove symlinks created by stow:
+
+```zsh
+stow -D config
+```
+
+### Troubleshooting
+
+- **"WARNING! stowing X would cause conflicts"**: Files already exist at target locations. Use the backup or adopt method above.
+- **"No such file or directory"**: Make sure you're in the `~/.dotfiles` directory when running stow commands.
