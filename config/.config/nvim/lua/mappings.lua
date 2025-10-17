@@ -148,6 +148,13 @@ map("n", "]c", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next git hunk" })
 -- Lazygit
 map("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Open LazyGit" })
 
+-- UFO Folding
+map("n", "zR", function() require("ufo").openAllFolds() end, { desc = "Open all folds" })
+map("n", "zM", function() require("ufo").closeAllFolds() end, { desc = "Close all folds" })
+map("n", "zr", function() require("ufo").openFoldsExceptKinds() end, { desc = "Fold less" })
+map("n", "zm", function() require("ufo").closeFoldsWith() end, { desc = "Fold more" })
+map("n", "zp", function() require("ufo").peekFoldedLinesUnderCursor() end, { desc = "Peek fold" })
+
 -- Miscellaneous
 map("n", "<leader>uu", "<cmd>Lazy update<cr>", { desc = "Update plugins" })
 map("n", "<leader>um", "<cmd>Mason<cr>", { desc = "Mason (LSP installer)" })
