@@ -4,6 +4,9 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+-- Remove annoying <leader>n keymaps
+vim.keymap.del("n", "<leader>n")
+
 -- Window Navigation
 map("n", "<C-h>", "<C-w>h", { desc = "Switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "Switch window right" })
@@ -63,8 +66,8 @@ map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
 map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true<CR>", { desc = "Find all files" })
 
 -- Telescope LSP Symbol Search
-map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Find symbols in document" })
-map("n", "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<CR>", { desc = "Find symbols in workspace" })
+map("n", "gs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Find symbols in document" })
+map("n", "gS", "<cmd>Telescope lsp_workspace_symbols<CR>", { desc = "Find symbols in workspace" })
 map("n", "<leader>fr", "<cmd>Telescope lsp_references<CR>", { desc = "Find references" })
 
 -- Terminal
@@ -154,6 +157,13 @@ map("n", "zM", function() require("ufo").closeAllFolds() end, { desc = "Close al
 map("n", "zr", function() require("ufo").openFoldsExceptKinds() end, { desc = "Fold less" })
 map("n", "zm", function() require("ufo").closeFoldsWith() end, { desc = "Fold more" })
 map("n", "zp", function() require("ufo").peekFoldedLinesUnderCursor() end, { desc = "Peek fold" })
+
+-- Markdown Preview
+map("n", "<leader>mt", "<cmd>Markview Toggle<cr>", { desc = "Toggle markdown preview" })
+map("n", "<leader>mp", "<cmd>Markview Enable<cr>", { desc = "Enable markdown preview" })
+map("n", "<leader>ms", "<cmd>Markview Disable<cr>", { desc = "Disable markdown preview" })
+map("n", "<leader>mh", "<cmd>Markview HybridToggle<cr>", { desc = "Toggle hybrid mode" })
+map("n", "<leader>mv", "<cmd>Markview splitToggle<cr>", { desc = "Toggle split view" })
 
 -- Miscellaneous
 map("n", "<leader>uu", "<cmd>Lazy update<cr>", { desc = "Update plugins" })
