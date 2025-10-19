@@ -83,6 +83,16 @@ return {
     event = "InsertEnter",
   },
 
+  -- nvim-surround for manipulating surroundings
+  {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({})
+    end,
+  },
+
   -- Open links in browser
   {
     "chrishrb/gx.nvim",
