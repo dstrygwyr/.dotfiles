@@ -45,7 +45,6 @@ map({ "n", "x" }, "<leader>fm", function()
       on_exit = function(_, exit_code)
         if exit_code == 0 then
           vim.cmd("checktime") -- Reload the file
-          vim.notify("Biome: Formatted", vim.log.levels.INFO)
         else
           vim.notify("Biome: Check failed", vim.log.levels.ERROR)
         end
