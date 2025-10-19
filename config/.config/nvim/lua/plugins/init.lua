@@ -20,6 +20,7 @@ return {
       -- Auto-install these LSP servers when opening Neovim
       ensure_installed = {
         "lua_ls",
+        "biome",
       },
       -- Auto-setup any LSP installed via Mason
       automatic_installation = true,
@@ -141,5 +142,5 @@ return {
     config = function()
       require "configs.lualine"
     end,
-  },
+  }
 }

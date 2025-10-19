@@ -22,9 +22,39 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jj", "<ESC>", { desc = "Exit insert mode" })
 map("n", "<leader>ch", "<cmd>NvCheatsheet<CR>", { desc = "Toggle nvcheatsheet" })
 
--- Format
+-- Format with Biome (includes class sorting)
 map({ "n", "x" }, "<leader>fm", function()
-  require("conform").format { lsp_fallback = true }
+  local bufnr = vim.api.nvim_get_current_buf()
+  local filename = vim.api.nvim_buf_get_name(bufnr)
+  local filetype = vim.bo.filetype
+
+  -- Check if it's a filetype that Biome handles
+  local biome_filetypes = {
+    javascript = true,
+    javascriptreact = true,
+    typescript = true,
+    typescriptreact = true,
+    json = true,
+    jsonc = true,
+    css = true,
+  }
+
+  if biome_filetypes[filetype] and filename ~= "" then
+    -- Run biome check with --write for Biome-supported files
+    vim.fn.jobstart({"biome", "check", "--write", "--unsafe", filename}, {
+      on_exit = function(_, exit_code)
+        if exit_code == 0 then
+          vim.cmd("checktime") -- Reload the file
+          vim.notify("Biome: Formatted", vim.log.levels.INFO)
+        else
+          vim.notify("Biome: Check failed", vim.log.levels.ERROR)
+        end
+      end,
+    })
+  else
+    -- Fall back to conform for other file types
+    require("conform").format { lsp_fallback = true }
+  end
 end, { desc = "Format file" })
 
 -- Global LSP mappings
