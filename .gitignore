@@ -49,3 +49,6 @@ local
 
 # vercel
 .vercel
+
+# github-copilot
+config/.config/github-copilot/apps.json
