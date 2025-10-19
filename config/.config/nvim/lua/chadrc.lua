@@ -15,13 +15,16 @@ M.base46 = {
 }
 
 M.nvdash = { load_on_startup = false }
+-- Disable Telescope (using Snacks instead)
 M.ui = {
+  telescope = { enabled = false },
   tabufline = {
     enabled = true,
     lazyload = true,
     order = { "treeOffset", "buffers", "tabs" },
   },
   statusline = {
+    enabled = false,
     theme = "minimal",
     separator_style = "block",
     order = { "mode", "file", "git", "%=", "lsp_msg", "%=", "diagnostics", "lsp", "cwd", "cursor" },

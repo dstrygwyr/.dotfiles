@@ -160,10 +160,34 @@
 
   // === Context Servers (MCP) ===
   "context_servers": {
-    "laravel-boost": {
-      "source": "extension",
+    "atlassian": {
+      "source": "custom",
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.atlassian.com/v1/sse"],
+      "enabled": true
+    },
+    "chrome-devtools": {
+      "source": "custom",
+      "command": "npx",
+      "args": ["chrome-devtools-mcp@latest"]
+    },
+    "figma": {
       "enabled": true,
-      "settings": {}
+      "source": "custom",
+      "command": "npx",
+      "args": [
+        "-y",
+        "figma-developer-mcp",
+        "--figma-api-key=YOUR_KEY",
+        "--stdio"
+      ]
+    },
+    "laravel-boost": {
+      "env": {},
+      "args": ["artisan", "boost:mcp"],
+      "command": "php",
+      "source": "custom",
+      "enabled": true
     }
   },
 

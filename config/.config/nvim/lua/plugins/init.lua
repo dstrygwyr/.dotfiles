@@ -2,12 +2,34 @@ return {
   {
     "stevearc/conform.nvim",
     -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
+    opts = require "configs.formatter",
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
+  -- Mason LSP installer
+  {
+    "williamboman/mason.nvim",
+    cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUpdate" },
+    opts = {},
+  },
+
+  -- Bridge between Mason and lspconfig
+  {
+    "williamboman/mason-lspconfig.nvim",
+    dependencies = { "williamboman/mason.nvim" },
+    opts = {
+      -- Auto-install these LSP servers when opening Neovim
+      ensure_installed = {
+        "lua_ls",
+      },
+      -- Auto-setup any LSP installed via Mason
+      automatic_installation = true,
+    },
+  },
+
+  -- LSP Configuration
   {
     "neovim/nvim-lspconfig",
+    dependencies = { "williamboman/mason-lspconfig.nvim" },
     config = function()
       require "configs.lspconfig"
     end,
@@ -95,5 +117,29 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons"
     },
+  },
+
+  -- Snacks.nvim (replacing Telescope)
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      bigfile = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+    },
+  },
+
+  -- Lualine statusline
+  {
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require "configs.lualine"
+    end,
   },
 }

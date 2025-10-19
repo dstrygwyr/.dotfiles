@@ -3,6 +3,7 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
+local Snacks = require("snacks")
 
 -- Remove annoying <leader>n keymaps
 vim.keymap.del("n", "<leader>n")
@@ -49,26 +50,26 @@ map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "Focus file explorer" })
 
--- Telescope
-map("n", "<leader>fw", "<cmd>Telescope live_grep<CR>", { desc = "Live grep" })
-map("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find buffers" })
-map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Help page" })
-map("n", "<leader>ma", "<cmd>Telescope marks<CR>", { desc = "Find marks" })
-map("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", { desc = "Find oldfiles" })
-map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<CR>", { desc = "Find in current buffer" })
-map("n", "<leader>cm", "<cmd>Telescope git_commits<CR>", { desc = "Git commits" })
-map("n", "<leader>gt", "<cmd>Telescope git_status<CR>", { desc = "Git status" })
+-- Snacks Picker
+map("n", "<leader>fw", function() Snacks.picker.grep() end, { desc = "Live grep" })
+map("n", "<leader>fb", function() Snacks.picker.buffers() end, { desc = "Find buffers" })
+map("n", "<leader>fh", function() Snacks.picker.help() end, { desc = "Help page" })
+map("n", "<leader>ma", function() Snacks.picker.marks() end, { desc = "Find marks" })
+map("n", "<leader>fo", function() Snacks.picker.recent() end, { desc = "Find oldfiles" })
+map("n", "<leader>fz", function() Snacks.picker.grep_bufword() end, { desc = "Find in current buffer" })
+map("n", "<leader>cm", function() Snacks.picker.git_log() end, { desc = "Git commits" })
+map("n", "<leader>gt", function() Snacks.picker.git_status() end, { desc = "Git status" })
 map("n", "<leader>pt", "<cmd>Telescope terms<CR>", { desc = "Pick hidden term" })
 map("n", "<leader>th", function()
   require("nvchad.themes").open()
 end, { desc = "NvChad themes" })
-map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
-map("n", "<leader>fa", "<cmd>Telescope find_files follow=true no_ignore=true<CR>", { desc = "Find all files" })
+map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find files" })
+map("n", "<leader>fa", function() Snacks.picker.files({ hidden = true, no_ignore = true }) end, { desc = "Find all files" })
 
--- Telescope LSP Symbol Search
-map("n", "gs", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Find symbols in document" })
-map("n", "gS", "<cmd>Telescope lsp_workspace_symbols<CR>", { desc = "Find symbols in workspace" })
-map("n", "<leader>fr", "<cmd>Telescope lsp_references<CR>", { desc = "Find references" })
+-- Snacks LSP Symbol Search
+map("n", "gs", function() Snacks.picker.lsp_symbols() end, { desc = "Find symbols in document" })
+map("n", "gS", function() Snacks.picker.lsp_workspace_symbols() end, { desc = "Find symbols in workspace" })
+map("n", "<leader>fr", function() Snacks.picker.lsp_references() end, { desc = "Find references" })
 
 -- Terminal
 map("t", "<Esc><Esc>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
@@ -141,7 +142,7 @@ map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "Hover documentation
 map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "Previous diagnostic" })
 map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Next diagnostic" })
 map("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Open diagnostic float" })
-map("n", "<leader>dl", "<cmd>Telescope diagnostics<cr>", { desc = "List all diagnostics" })
+map("n", "<leader>dl", function() Snacks.picker.diagnostics() end, { desc = "List all diagnostics" })
 
 -- Git (Gitsigns)
 map("n", "<leader>gp", "<cmd>Gitsigns preview_hunk<cr>", { desc = "Preview git hunk" })
