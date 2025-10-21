@@ -1,24 +1,47 @@
 tap "hashicorp/tap"
 tap "oven-sh/bun"
+tap "sst/tap"
 # Distributed revision control system
 brew "git"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
 # Official Amazon AWS command-line interface
 brew "awscli"
+# Cross-platform make
+brew "cmake"
+# General-purpose scripting language
+brew "php", restart_service: :changed
+# Dependency Manager for PHP
+brew "composer"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
+# GitHub command-line tool
+brew "gh"
+# Tools and libraries to manipulate images in many formats
+brew "imagemagick"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Clone of ls with colorful output, file type icons, and more
+brew "lsd"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Open client for Cisco AnyConnect VPN
+brew "openconnect"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
 # Fast, disk space efficient package manager
 brew "pnpm"
-# Safe, concurrent, practical language
-brew "rust"
-# Rust toolchain installer
-brew "rustup"
+# Object-relational database system
+brew "postgresql@16", restart_service: :changed
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Cross-shell prompt for astronauts
 brew "starship"
 # Organize software neatly under a single directory tree (e.g. /usr/local)
 brew "stow"
-# Fish-like fast/unobtrusive autosuggestions for zsh
+# Terminal multiplexer
+brew "tmux"
+# Friendly and fast tool for sending HTTP requests
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
@@ -32,16 +55,20 @@ cask "anydesk"
 cask "arc"
 # Voice and text chat software
 cask "discord"
-# App to build and share containerised applications and microservices
-cask "docker-desktop"
 # Collaborative team software
 cask "figma"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # Cross-platform Git credential storage for multiple hosting providers
 cask "git-credential-manager"
 # Git client focusing on productivity
 cask "gitkraken"
+# Web browser
+cask "google-chrome"
+# Open source API development ecosystem
+cask "hoppscotch"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # Knowledge base that works on top of a local folder of plain text Markdown files
@@ -62,3 +89,5 @@ cask "warp"
 cask "whatsapp"
 # Multiplayer code editor
 cask "zed"
+# Gecko based web browser
+cask "zen"
