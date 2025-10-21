@@ -164,14 +164,7 @@ return {
   -- CodeCompanion for AI coding assistance
   {
     "olimorris/codecompanion.nvim",
-    cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionCmd" },
-    keys = {
-      { "<leader>ca", mode = { "n", "v" } },
-      { "<leader>cc", mode = { "n", "v" } },
-      { "<leader>co", mode = "n" },
-      { "<leader>ci", mode = { "n", "v" } },
-      { "<leader>cm", mode = "n" },
-    },
+    event = "VeryLazy",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
