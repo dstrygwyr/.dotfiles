@@ -192,11 +192,34 @@
   },
 
   // === Language Server (LSP) ===
+  "languages": {
+    "PHP": {
+      "language_servers": ["intelephense", "!phpactor", "..."]
+    }
+  },
   "lsp": {
     "biome": {
       "settings": {
         "config_path": "./biome.jsonc",
         "require_config_file": true
+      }
+    },
+    "intelephense": {
+      "initialization_options": {
+        "enable": true,
+        "completion": {
+          "snippetSupport": true
+        },
+        "format": {
+          "enable": true
+        },
+        "codeAction": {
+          "enable": true
+        },
+        "diagnostics": {
+          "enable": true,
+          "undefinedProperties": true
+        }
       }
     }
   },
