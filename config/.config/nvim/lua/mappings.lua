@@ -41,7 +41,7 @@ map({ "n", "x" }, "<leader>fm", function()
 
   if biome_filetypes[filetype] and filename ~= "" then
     -- Run biome check with --write for Biome-supported files
-    vim.fn.jobstart({"biome", "check", "--write", "--unsafe", filename}, {
+    vim.fn.jobstart({ "biome", "check", "--write", "--unsafe", filename }, {
       on_exit = function(_, exit_code)
         if exit_code == 0 then
           vim.cmd("checktime") -- Reload the file
@@ -93,7 +93,8 @@ map("n", "<leader>th", function()
   require("nvchad.themes").open()
 end, { desc = "NvChad themes" })
 map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Find files" })
-map("n", "<leader>fa", function() Snacks.picker.files({ hidden = true, no_ignore = true }) end, { desc = "Find all files" })
+map("n", "<leader>fa", function() Snacks.picker.files({ hidden = true, no_ignore = true }) end,
+  { desc = "Find all files" })
 
 -- Snacks LSP Symbol Search
 map("n", "gs", function() Snacks.picker.lsp_symbols() end, { desc = "Find symbols in document" })

@@ -14,9 +14,9 @@ return {
       done_style = "Constant",
       progress_ttl = math.huge,
       -- Custom braille spinner animation
-      progress_icon = { 
-        pattern = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }, 
-        period = 1 
+      progress_icon = {
+        pattern = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" },
+        period = 1
       },
       progress_style = "WarningMsg",
       group_style = "Title",
