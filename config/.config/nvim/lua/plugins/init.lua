@@ -36,6 +36,13 @@ return {
     end,
   },
 
+  -- Fidget.nvim for LSP progress notifications
+  {
+    "j-hui/fidget.nvim",
+    event = "LspAttach",
+    opts = require "configs.fidget",
+  },
+
   -- test new blink
   { import = "nvchad.blink.lazyspec" },
 
@@ -152,5 +159,26 @@ return {
     config = function()
       require "configs.lualine"
     end,
-  }
+  },
+
+  -- CodeCompanion for AI coding assistance
+  {
+    "olimorris/codecompanion.nvim",
+    cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionActions", "CodeCompanionCmd" },
+    keys = {
+      { "<leader>ca", mode = { "n", "v" } },
+      { "<leader>cc", mode = { "n", "v" } },
+      { "<leader>co", mode = "n" },
+      { "<leader>ci", mode = { "n", "v" } },
+      { "<leader>cm", mode = "n" },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    init = function()
+      require("configs.codecompanion.spinner"):init()
+    end,
+    opts = require "configs.codecompanion",
+  },
 }

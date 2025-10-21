@@ -199,3 +199,14 @@ map("n", "<leader>mv", "<cmd>Markview splitToggle<cr>", { desc = "Toggle split v
 -- Miscellaneous
 map("n", "<leader>uu", "<cmd>Lazy update<cr>", { desc = "Update plugins" })
 map("n", "<leader>um", "<cmd>Mason<cr>", { desc = "Mason (LSP installer)" })
+
+-- CodeCompanion (AI Assistant)
+map({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<cr>", { desc = "AI Action Palette" })
+map({ "n", "v" }, "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "AI Toggle Chat" })
+map("n", "<leader>co", "<cmd>CodeCompanionChat<cr>", { desc = "AI Open Chat" })
+map("v", "<leader>ca", "<cmd>CodeCompanionChat Add<cr>", { desc = "AI Add to Chat" })
+map({ "n", "v" }, "<leader>ci", "<cmd>CodeCompanion<cr>", { desc = "AI Inline Assistant" })
+map("n", "<leader>cm", "<cmd>CodeCompanionCmd<cr>", { desc = "AI Generate Command" })
+
+-- Expand 'cc' into 'CodeCompanion' in the command line
+vim.cmd([[cab cc CodeCompanion]])
