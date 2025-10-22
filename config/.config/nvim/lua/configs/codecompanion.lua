@@ -6,7 +6,7 @@ return {
           env = {
             -- You can set your authentication here
             -- For OAuth token (if you have Claude Pro):
-            -- CLAUDE_CODE_OAUTH_TOKEN = "your-oauth-token",
+            -- CLAUDE_CODE_OAUTH_TOKEN = "your-claude-code-oauth-token",
 
             -- Or for API key:
             -- ANTHROPIC_API_KEY = "your-api-key",
@@ -66,7 +66,7 @@ return {
       show_token_count = true,
       show_tools_processing = true,
       start_in_insert_mode = false,
-      auto_scroll = false,
+      auto_scroll = true,
       icons = {
         buffer_pin = " ",
         buffer_watch = "👀 ",
