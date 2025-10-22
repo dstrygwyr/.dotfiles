@@ -171,19 +171,23 @@ return {
     config = function(_, opts)
       require("snacks").setup(opts)
       
-      -- Get theme colors
-      local colors = dofile(vim.g.base46_cache .. "colors")
-      
-      -- Customize Snacks picker colors to match your theme
-      vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = colors.grey_fg })
-      vim.api.nvim_set_hl(0, "SnacksPickerFile", { fg = colors.white })
-      vim.api.nvim_set_hl(0, "SnacksPickerMatch", { fg = colors.green, bold = true })
-      vim.api.nvim_set_hl(0, "SnacksPickerSelected", { fg = colors.black, bg = colors.green })
-      vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = colors.grey, bg = colors.black })
-      vim.api.nvim_set_hl(0, "SnacksPickerNormal", { fg = colors.white, bg = colors.black })
-      vim.api.nvim_set_hl(0, "SnacksPickerTitle", { fg = colors.green, bg = colors.one_bg, bold = true })
-      vim.api.nvim_set_hl(0, "SnacksPickerPreview", { bg = colors.darker_black })
-      vim.api.nvim_set_hl(0, "SnacksPickerInput", { fg = colors.white, bg = colors.black2 })
+      -- Customize Snacks picker colors to match Kanso theme
+      -- These will be applied after Kanso loads
+      vim.api.nvim_create_autocmd("ColorScheme", {
+        pattern = "kanso",
+        callback = function()
+          -- Kanso-compatible colors (neutral and harmonious) with transparency
+          vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = "#7e9e9e" })
+          vim.api.nvim_set_hl(0, "SnacksPickerFile", { fg = "#c3c9c5" })
+          vim.api.nvim_set_hl(0, "SnacksPickerMatch", { fg = "#8fb4a1", bold = true })
+          vim.api.nvim_set_hl(0, "SnacksPickerSelected", { fg = "#1f2326", bg = "#8fb4a1" })
+          vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = "#555b57" })
+          vim.api.nvim_set_hl(0, "SnacksPickerNormal", { fg = "#c3c9c5", bg = "NONE" })
+          vim.api.nvim_set_hl(0, "SnacksPickerTitle", { fg = "#8fb4a1", bold = true })
+          vim.api.nvim_set_hl(0, "SnacksPickerPreview", { bg = "NONE" })
+          vim.api.nvim_set_hl(0, "SnacksPickerInput", { fg = "#c3c9c5", bg = "NONE" })
+        end,
+      })
     end,
   },
 
@@ -210,6 +214,58 @@ return {
     end,
     opts = require "configs.codecompanion",
   },
+
+  -- nvim-web-devicons with explicit color setup
+  {
+    "nvim-tree/nvim-web-devicons",
+    lazy = false,
+    priority = 900,
+    config = function()
+      require("nvim-web-devicons").setup({
+        override = {},
+        color_icons = true,
+        default = true,
+        strict = true,
+        override_by_filename = {
+          [".gitignore"] = {
+            icon = "",
+            color = "#f1502f",
+            name = "Gitignore"
+          },
+        },
+        override_by_extension = {
+          ["log"] = {
+            icon = "",
+            color = "#81e043",
+            name = "Log"
+          },
+        },
+      })
+    end,
+  },
+
+  -- Kanso theme (standalone, bypasses base46)
+  {
+    "webhooked/kanso.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("kanso").setup({
+        variant = "zen", -- Options: zen, ink, mist, pearl
+        saturated = true,
+        transparent = false,
+      })
+      
+      -- Apply after UI loads to ensure it overrides everything
+      vim.schedule(function()
+        vim.cmd("colorscheme kanso")
+      end)
+    end,
+  },
 }
+
+
+
+
 
 

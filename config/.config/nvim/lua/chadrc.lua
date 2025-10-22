@@ -5,14 +5,10 @@
 ---@type ChadrcConfig
 local M = {}
 
-M.base46 = {
-  theme = "kanagawa-dragon",
-
-  -- hl_override = {
-  -- 	Comment = { italic = true },
-  -- 	["@comment"] = { italic = true },
-  -- },
-}
+-- Disable base46 theme since we're using Kanso
+-- M.base46 = {
+--   theme = "onedark",
+-- }
 
 M.nvdash = { load_on_startup = false }
 -- Disable Telescope (using Snacks instead)
@@ -32,3 +28,4 @@ M.ui = {
 }
 
 return M
+
