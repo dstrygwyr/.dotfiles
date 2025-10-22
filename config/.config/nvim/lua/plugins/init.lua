@@ -254,11 +254,52 @@ return {
         variant = "zen", -- Options: zen, ink, mist, pearl
         saturated = true,
         transparent = false,
+        overrides = function(colors)
+          -- Use a lighter, more visible border color
+          local border_color = colors.palette.springGreen or colors.palette.fujiGray or "#8fb4a1"
+          
+          return {
+            -- Floating window borders (more visible)
+            FloatBorder = { fg = border_color, bg = colors.theme.ui.bg },
+            NormalFloat = { bg = colors.theme.ui.bg },
+            
+            -- Telescope/Snacks borders
+            TelescopeBorder = { fg = border_color, bg = colors.theme.ui.bg },
+            TelescopeNormal = { bg = colors.theme.ui.bg },
+            
+            -- LSP borders
+            LspInfoBorder = { fg = border_color },
+            
+            -- NvimTree borders
+            NvimTreeWinSeparator = { fg = border_color },
+            NvimTreeNormal = { bg = colors.theme.ui.bg },
+            
+            -- Window separators
+            WinSeparator = { fg = border_color },
+            VertSplit = { fg = border_color },
+            
+            -- Buffer/tabline borders
+            TabLineSel = { fg = colors.theme.ui.fg, bg = colors.theme.ui.bg_p2 },
+            TabLine = { bg = colors.theme.ui.bg_m3, fg = colors.theme.ui.fg_dim },
+            TabLineFill = { bg = colors.theme.ui.bg },
+          }
+        end,
       })
       
       -- Apply after UI loads to ensure it overrides everything
       vim.schedule(function()
         vim.cmd("colorscheme kanso")
+        
+        -- Set global border style
+        vim.opt.fillchars:append({
+          horiz = '━',
+          horizup = '┻',
+          horizdown = '┳',
+          vert = '┃',
+          vertleft = '┫',
+          vertright = '┣',
+          verthoriz = '╋',
+        })
       end)
     end,
   },
