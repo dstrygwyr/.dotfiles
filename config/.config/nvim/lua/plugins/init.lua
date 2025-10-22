@@ -148,7 +148,43 @@ return {
       quickfile = { enabled = true },
       statuscolumn = { enabled = true },
       words = { enabled = true },
+      picker = {
+        win = {
+          input = {
+            keys = {
+              ["<Esc>"] = { "close", mode = { "n", "i" } },
+            },
+          },
+        },
+        formatters = {
+          file = {
+            filename_first = true,
+          },
+        },
+        -- Customize colors for better visibility
+        styles = {
+          input = "minimal",
+          preview = "minimal",
+        },
+      },
     },
+    config = function(_, opts)
+      require("snacks").setup(opts)
+      
+      -- Get theme colors
+      local colors = dofile(vim.g.base46_cache .. "colors")
+      
+      -- Customize Snacks picker colors to match your theme
+      vim.api.nvim_set_hl(0, "SnacksPickerDir", { fg = colors.grey_fg })
+      vim.api.nvim_set_hl(0, "SnacksPickerFile", { fg = colors.white })
+      vim.api.nvim_set_hl(0, "SnacksPickerMatch", { fg = colors.green, bold = true })
+      vim.api.nvim_set_hl(0, "SnacksPickerSelected", { fg = colors.black, bg = colors.green })
+      vim.api.nvim_set_hl(0, "SnacksPickerBorder", { fg = colors.grey, bg = colors.black })
+      vim.api.nvim_set_hl(0, "SnacksPickerNormal", { fg = colors.white, bg = colors.black })
+      vim.api.nvim_set_hl(0, "SnacksPickerTitle", { fg = colors.green, bg = colors.one_bg, bold = true })
+      vim.api.nvim_set_hl(0, "SnacksPickerPreview", { bg = colors.darker_black })
+      vim.api.nvim_set_hl(0, "SnacksPickerInput", { fg = colors.white, bg = colors.black2 })
+    end,
   },
 
   -- Lualine statusline
@@ -175,3 +211,5 @@ return {
     opts = require "configs.codecompanion",
   },
 }
+
+

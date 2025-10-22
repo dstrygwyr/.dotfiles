@@ -1,0 +1,18 @@
+git:
+  paging:
+    colorArg: always
+    # pager: delta --dark --paging=never
+
+os:
+  editPreset: 'nvim'
+
+gui:
+  # Show file tree by default
+  showFileTree: true
+  # Show command log
+  showCommandLog: true
+  # Mouse support
+  mouseEvents: true
+  # Border
+  border: 'rounded'
+
