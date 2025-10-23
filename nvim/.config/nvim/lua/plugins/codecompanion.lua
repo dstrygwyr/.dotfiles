@@ -88,9 +88,18 @@ return {
       adapters = {
         acp = {
           claude_code = function()
+            -- Load token from secrets.lua (not in version control)
+            local ok, secrets = pcall(require, "secrets")
+            local token = ok and secrets.claude_token or nil
+
+            if not token then
+              vim.notify("Claude token not found. Please configure lua/secrets.lua", vim.log.levels.ERROR)
+              return nil
+            end
+
             return require("codecompanion.adapters").extend("claude_code", {
               env = {
-                CLAUDE_CODE_OAUTH_TOKEN = "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",
+                CLAUDE_CODE_OAUTH_TOKEN = token,
               },
             })
           end,
