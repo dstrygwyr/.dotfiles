@@ -106,14 +106,14 @@ return {
           adapter = "copilot", -- Use Copilot for inline suggestions
         },
         cmd = {
-          adapter = "claude_code", -- Use Claude Code for commands
+          adapter = "copilot", -- Use Copilot for commands (claude_code ACP adapter not supported for cmd strategy)
         },
       },
 
       -- Display configuration
       display = {
         action_palette = {
-          provider = "snacks", -- Use snacks picker instead of telescope
+          provider = "default", -- Use default provider (snacks has compatibility issues)
           width = 95,
           height = 10,
         },
@@ -152,7 +152,7 @@ return {
     -- Setup function
     config = function(_, opts)
       require("codecompanion").setup(opts)
-      
+
       -- Suppress invalid buffer errors
       local original_notify = vim.notify
       vim.notify = function(msg, level, notify_opts)

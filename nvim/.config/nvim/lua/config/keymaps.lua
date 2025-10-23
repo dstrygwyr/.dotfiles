@@ -4,23 +4,6 @@
 
 local map = vim.keymap.set
 
--- Helper function to get buffer directory (handles Oil.nvim)
-local function get_buffer_dir()
-  local buffer_dir = vim.fn.expand('%:p:h')
-
-  -- Handle Oil.nvim buffers (oil://path -> path)
-  if buffer_dir:match("^oil://") then
-    buffer_dir = buffer_dir:gsub("^oil://", "")
-  end
-
-  -- If buffer has no file (empty buffer), use cwd instead
-  if buffer_dir == "" or buffer_dir == "." then
-    buffer_dir = vim.fn.getcwd()
-  end
-
-  return buffer_dir
-end
-
 -- Remove default LazyVim keymaps if needed
 -- vim.keymap.del("n", "<leader>n")
 
@@ -72,15 +55,15 @@ map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 -- File Explorer (using Oil.nvim - configured in plugins)
 -- ========================================================================
 -- These are already defined in lua/plugins/oil.lua:
--- map("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Open file explorer" })
--- map("n", "<leader>E", "<cmd>Oil --float<cr>", { desc = "Open file explorer (float)" })
--- map("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
+map("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Open file explorer" })
+map("n", "<leader>E", "<cmd>Oil --float<cr>", { desc = "Open file explorer (float)" })
+map("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
 
 -- ========================================================================
 -- Snacks Picker (LazyVim's built-in picker)
 -- ========================================================================
 map("n", "<leader>fw", function()
-  Snacks.picker.grep({ cwd = get_buffer_dir() })
+  Snacks.picker.grep()
 end, { desc = "Live grep" })
 map("n", "<leader>fb", function()
   Snacks.picker.buffers()
@@ -95,19 +78,19 @@ map("n", "<leader>fo", function()
   Snacks.picker.recent()
 end, { desc = "Find oldfiles" })
 map("n", "<leader>fz", function()
-  Snacks.picker.grep_bufword({ cwd = get_buffer_dir() })
+  Snacks.picker.grep_bufword()
 end, { desc = "Find in current buffer" })
 map("n", "<leader>cm", function()
-  Snacks.picker.git_log({ cwd = get_buffer_dir() })
+  Snacks.picker.git_log()
 end, { desc = "Git commits" })
 map("n", "<leader>gt", function()
-  Snacks.picker.git_status({ cwd = get_buffer_dir() })
+  Snacks.picker.git_status()
 end, { desc = "Git status" })
 map("n", "<leader>ff", function()
-  Snacks.picker.files({ cwd = get_buffer_dir() })
+  Snacks.picker.files()
 end, { desc = "Find files" })
 map("n", "<leader>fa", function()
-  Snacks.picker.files({ hidden = true, no_ignore = true, cwd = get_buffer_dir() })
+  Snacks.picker.files({ hidden = true, no_ignore = true })
 end, { desc = "Find all files" })
 
 -- ========================================================================
@@ -180,7 +163,7 @@ map("n", "]c", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next git hunk" })
 -- LazyGit (if installed)
 -- ========================================================================
 map("n", "<leader>gg", function()
-  Snacks.lazygit({ cwd = get_buffer_dir() })
+  Snacks.lazygit()
 end, { desc = "Open LazyGit" })
 
 -- ========================================================================
@@ -220,19 +203,18 @@ map("n", "<leader>um", "<cmd>Mason<cr>", { desc = "Mason (LSP installer)" })
 -- ========================================================================
 -- CodeCompanion (AI Assistant)
 -- ========================================================================
-map({ "n", "v" }, "<leader>ca", "<cmd>CodeCompanionActions<cr>", { desc = "AI Action Palette" })
-map("v", "<leader>cA", "<cmd>CodeCompanionChat Add<cr>", { desc = "AI Add to Chat" })
-map({ "n", "v" }, "<leader>cc", function()
+map({ "n", "v" }, "<leader>aa", function()
   require("codecompanion").toggle()
 end, { desc = "AI Toggle Chat" })
-map("n", "<leader>co", "<cmd>CodeCompanionChat<cr>", { desc = "AI Open Chat" })
-map({ "n", "v" }, "<leader>ci", "<cmd>CodeCompanion<cr>", { desc = "AI Inline Assistant" })
-map("n", "<leader>cC", "<cmd>CodeCompanionCmd<cr>", { desc = "AI Generate Command" })
-map("n", "<leader>cp", function()
+map({ "n", "v" }, "<leader>ap", "<cmd>CodeCompanionActions<cr>", { desc = "AI Action Palette" })
+map("v", "<leader>aA", "<cmd>CodeCompanionChat Add<cr>", { desc = "AI Add to Chat" })
+map("n", "<leader>ao", "<cmd>CodeCompanionChat<cr>", { desc = "AI Open Chat" })
+map({ "n", "v" }, "<leader>ai", "<cmd>CodeCompanion<cr>", { desc = "AI Inline Assistant" })
+map("n", "<leader>ac", "<cmd>CodeCompanionCmd<cr>", { desc = "AI Generate Command" })
+map("n", "<leader>aq", function()
   local input = vim.fn.input("Quick AI Prompt: ")
   if input ~= "" then
     require("codecompanion").prompt(input)
   end
 end, { desc = "AI Quick Prompt" })
-map({ "n", "v" }, "ga", "<cmd>CodeCompanionActions<cr>", { desc = "AI Actions" })
 vim.cmd([[cab cc CodeCompanion]])
