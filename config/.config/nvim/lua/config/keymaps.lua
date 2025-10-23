@@ -129,32 +129,10 @@ end, { desc = "Find references" })
 map("t", "<Esc><Esc>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
 map("t", "<C-q>", "<C-\\><C-N>:bd!<CR>", { desc = "Close terminal" })
 
--- Toggle terminals (LazyVim already has terminal support via Snacks)
+-- Toggle horizontal terminal
 map("n", "<leader>h", function()
-  Snacks.terminal(nil, { position = "bottom", size = 0.3 })
+  Snacks.terminal(nil, { win = { position = "bottom", height = 0.3 } })
 end, { desc = "Toggle horizontal term" })
-
-map("n", "<leader>v", function()
-  Snacks.terminal(nil, { position = "right", size = 0.3 })
-end, { desc = "Toggle vertical term" })
-
--- Toggleable terminals
-map({ "n", "t" }, "<A-v>", function()
-  Snacks.terminal(nil, { position = "right" })
-end, { desc = "Toggleable vertical term" })
-
-map({ "n", "t" }, "<A-h>", function()
-  Snacks.terminal(nil, { position = "bottom" })
-end, { desc = "Toggleable horizontal term" })
-
-map({ "n", "t" }, "<A-i>", function()
-  Snacks.terminal(nil, { position = "float" })
-end, { desc = "Toggle floating term" })
-
--- Alternative floating terminal keymap
-map("n", "<leader>ft", function()
-  Snacks.terminal(nil, { position = "float" })
-end, { desc = "Toggle floating term" })
 
 -- ========================================================================
 -- Better Copy/Paste
