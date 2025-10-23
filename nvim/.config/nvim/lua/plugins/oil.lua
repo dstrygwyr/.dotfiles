@@ -17,6 +17,9 @@ return {
         max_height = 0,
         border = "rounded",
       },
+      keymaps = {
+        ["q"] = "actions.close",
+      },
     },
     keys = {
       { "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
