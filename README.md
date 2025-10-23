@@ -1,123 +1,60 @@
-## Steps to Bootstrap a New Mac
+# Dotfiles
 
-### 1. Install Command Line Tools
+Personal configuration files for development environment setup.
 
-Install Apple's Command Line Tools (required for Git and Homebrew):
+> **Note:** Some configurations are optimized for macOS and may require adjustments for other operating systems.
 
-```zsh
-xcode-select --install
+## What's Included
+
+- **nvim** - Neovim configuration with plugins and themes
+- **zsh** - Shell configuration
+- **ghostty** - Terminal emulator themes and config
+- **zed** - Code editor themes and settings
+- **lazygit** - Git TUI configuration
+
+## Installation
+
+Uses [GNU Stow](https://www.gnu.org/software/stow/) for symlink management.
+
+### Quick Setup
+
+```bash
+./stow
 ```
 
-### 2. Clone This Repository
+### Manual Installation
 
-```zsh
-git clone https://github.com/yourusername/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
+```bash
+# Set environment variables (optional)
+export DOTFILES=$HOME/repos/.dotfiles
+export STOW_FOLDERS="tmux,zsh,nvim,ghostty,zed,lazygit,yazi"
+
+# Run install script
+./install
 ```
 
-### 3. Install Homebrew and Packages
+The install script will:
 
-Install Homebrew:
+1. Remove any existing symlinks for each package
+2. Create fresh symlinks to your home directory
 
-```zsh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+## Structure
+
+Each directory represents a package that can be independently stowed:
+
+```
+.dotfiles/
+├── ghostty/          # Terminal emulator
+├── lazygit/          # Git TUI
+├── nvim/             # Neovim editor
+├── zed/              # Code editor
+└── zsh/              # Shell
 ```
 
-Install all packages from the Brewfile:
+## Customization
 
-```zsh
-brew bundle --file ~/.dotfiles/Brewfile
+Modify the `STOW_FOLDERS` variable in the `stow` script to install only specific packages:
+
+```bash
+STOW_FOLDERS="nvim,tmux,zsh" ./stow
 ```
-
-### 4. Apply Dotfiles with Stow
-
-Stow creates symlinks from `~/.dotfiles` to your home directory.
-
-#### First Time Setup
-
-To symlink a specific configuration (e.g., nvim):
-
-```zsh
-cd ~/.dotfiles
-stow config
-```
-
-To symlink multiple configurations:
-
-```zsh
-cd ~/.dotfiles
-stow config zsh git
-```
-
-#### Handling Existing Files
-
-If you get a conflict error (files already exist), you have two options:
-
-**Option 1: Backup and remove existing files**
-
-```zsh
-# Backup existing config
-mkdir -p ~/config_backup
-mv ~/.config/nvim ~/config_backup/
-
-# Then run stow again
-stow config
-```
-
-**Option 2: Adopt existing files (merge into dotfiles)**
-
-```zsh
-# This moves existing files into your dotfiles directory and creates symlinks
-stow --adopt config
-
-# Review changes (some files might differ from your dotfiles)
-git diff
-
-# If you want to keep your dotfiles version, restore them
-git restore .
-```
-
-#### Removing Symlinks
-
-To remove symlinks created by stow:
-
-```zsh
-stow -D config
-```
-
-### Troubleshooting
-
-- **"WARNING! stowing X would cause conflicts"**: Files already exist at target locations. Use the backup or adopt method above.
-- **"No such file or directory"**: Make sure you're in the `~/.dotfiles` directory when running stow commands.
-
-## Neovim Configuration
-
-A customized Neovim setup based on NvChad, optimized for modern development workflows.
-
-![Neovim Preview](./config/.config/nvim/preview/Screenshot%202025-10-17%20at%2008.42.35.png)
-
-### Overview
-
-This configuration uses [NvChad](https://github.com/NvChad/NvChad) as a base framework. The main NvChad repository is imported as a plugin, allowing you to extend and customize it while maintaining compatibility with upstream updates.
-
-### Key Features
-
-- Modern LSP integration with enhanced keybindings
-- Smart code folding with nvim-ufo
-- Telescope fuzzy finder with custom configurations
-- Git integration and status indicators
-- Autocomplete and snippets support
-- Custom theme and UI enhancements
-
-### Structure
-
-This repo follows NvChad's modular pattern:
-- Import NvChad modules: `require "nvchad.options"`, `require "nvchad.mappings"`
-- Override and extend in `lua/` directory
-- Custom plugins in `lua/plugins/`
-- Keymappings in `lua/mappings.lua`
-
-### Credits
-
-- [NvChad](https://github.com/NvChad/NvChad) - Base framework
-- [LazyVim starter](https://github.com/LazyVim/starter) - Inspiration for NvChad's starter structure

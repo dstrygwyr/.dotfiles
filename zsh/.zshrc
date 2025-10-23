@@ -9,6 +9,10 @@ source $ZSH/oh-my-zsh.sh
 # ─── Starship Prompt ────────────────────────────────────────────────────────
 eval "$(starship init zsh)"
 
+# ─── Editor Configuration ───────────────────────────────────────────────────
+export EDITOR="nvim"
+export VISUAL="nvim"
+
 # ─── Path Configuration ─────────────────────────────────────────────────────
 export PATH="/opt/homebrew/opt/trash/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
@@ -28,9 +32,3 @@ fpath=(/Users/strygwyr/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 
-[[ -s "/Users/strygwyr/.gvm/scripts/gvm" ]] && source "/Users/strygwyr/.gvm/scripts/gvm"
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-# Source local config (not tracked by git)
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
