@@ -55,9 +55,9 @@ map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 -- File Explorer (using Oil.nvim - configured in plugins)
 -- ========================================================================
 -- These are already defined in lua/plugins/oil.lua:
-map("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Open file explorer" })
+-- map("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Open file explorer" })
 map("n", "<leader>E", "<cmd>Oil --float<cr>", { desc = "Open file explorer (float)" })
-map("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
+-- map("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
 
 -- ========================================================================
 -- Snacks Picker (LazyVim's built-in picker)
