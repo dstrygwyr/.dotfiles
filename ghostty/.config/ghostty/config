@@ -15,7 +15,7 @@ mouse-hide-while-typing = true
 working-directory = home
 
 # macOS
-macos-titlebar-style = native
+macos-window-buttons = visible
 macos-titlebar-proxy-icon = hidden
 macos-icon = glass
 
