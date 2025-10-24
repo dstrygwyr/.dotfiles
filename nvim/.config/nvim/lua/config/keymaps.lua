@@ -90,8 +90,9 @@ map("n", "<leader>ff", function()
   Snacks.picker.files()
 end, { desc = "Find files" })
 map("n", "<leader>fa", function()
-  Snacks.picker.files({ hidden = true, no_ignore = true })
-end, { desc = "Find all files" })
+  local root = vim.fs.root(0, { ".git" })
+  Snacks.picker.files({ cwd = root, hidden = true, no_ignore = true })
+end, { desc = "Find all files from git root" })
 
 -- ========================================================================
 -- LSP Symbol Search

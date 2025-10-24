@@ -21,14 +21,9 @@ return {
         ["q"] = "actions.close",
       },
     },
-    keys = {
-      { "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
-      { "<leader>e", "<cmd>Oil<cr>", desc = "Open file explorer" },
-      { "<leader>E", "<cmd>Oil --float<cr>", desc = "Open file explorer (float)" },
-    },
     config = function(_, opts)
       require("oil").setup(opts)
-      
+
       -- Open oil.nvim on startup if no files were opened
       vim.api.nvim_create_autocmd("VimEnter", {
         callback = function()
