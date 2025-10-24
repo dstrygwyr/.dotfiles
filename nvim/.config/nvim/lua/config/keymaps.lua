@@ -52,12 +52,44 @@ map("n", "<leader>/", "gcc", { desc = "Toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "Toggle comment", remap = true })
 
 -- ========================================================================
--- File Explorer (using Oil.nvim - configured in plugins)
+-- File Explorer
 -- ========================================================================
--- These are already defined in lua/plugins/oil.lua:
--- map("n", "<leader>e", "<cmd>Oil<cr>", { desc = "Open file explorer" })
-map("n", "<leader>E", "<cmd>Oil --float<cr>", { desc = "Open file explorer (float)" })
--- map("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
+map("n", "<leader>e", function()
+  local current_buf = vim.api.nvim_get_current_buf()
+  local buf_ft = vim.bo[current_buf].filetype
+  
+  if buf_ft == "neo-tree" then
+    -- If cursor is in neo-tree, go back to previous window
+    vim.cmd("wincmd p")
+  else
+    -- If cursor is not in neo-tree, focus neo-tree (open if not open)
+    local neo_tree_open = false
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+      local buf = vim.api.nvim_win_get_buf(win)
+      if vim.bo[buf].filetype == "neo-tree" then
+        neo_tree_open = true
+        vim.api.nvim_set_current_win(win)
+        break
+      end
+    end
+    
+    if not neo_tree_open then
+      vim.cmd("Neotree show")
+      -- After opening, focus neo-tree
+      vim.defer_fn(function()
+        for _, win in ipairs(vim.api.nvim_list_wins()) do
+          local buf = vim.api.nvim_win_get_buf(win)
+          if vim.bo[buf].filetype == "neo-tree" then
+            vim.api.nvim_set_current_win(win)
+            break
+          end
+        end
+      end, 50)
+    end
+  end
+end, { desc = "Toggle neo-tree focus" })
+map("n", "<C-n>", "<cmd>Neotree toggle<cr>", { desc = "Toggle neo-tree" })
+map("n", "<leader>E", "<cmd>Oil --float<cr>", { desc = "Toggle oil (float)" })
 
 -- ========================================================================
 -- Snacks Picker (LazyVim's built-in picker)
