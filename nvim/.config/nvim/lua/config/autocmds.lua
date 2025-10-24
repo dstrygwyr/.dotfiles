@@ -7,6 +7,14 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- Disable LazyVim's root detection autocmd
+vim.api.nvim_create_autocmd("User", {
+  pattern = "LazyVimStarted",
+  callback = function()
+    pcall(vim.api.nvim_del_augroup_by_name, "lazyvim_root")
+  end,
+})
+
 -- Set border highlights for kanso theme
 local function set_border_colors()
   vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#23262c", bg = "NONE" })

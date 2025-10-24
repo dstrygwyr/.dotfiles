@@ -15,7 +15,7 @@ mouse-hide-while-typing = true
 working-directory = home
 
 # macOS
-macos-titlebar-style = hidden
+macos-titlebar-style = native
 macos-titlebar-proxy-icon = hidden
 macos-icon = glass
 
@@ -31,9 +31,9 @@ font-feature = "ss03"
 font-feature = "ss04"
 
 # Cursor
-cursor-style = block
+cursor-style = bar
 cursor-style-blink = true
-adjust-cursor-thickness = 2
+adjust-cursor-thickness = 4
 shell-integration-features = no-cursor
 
 # Updates
